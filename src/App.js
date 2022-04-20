@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import NavBar from './component/NavBar';
@@ -11,6 +11,14 @@ function App() {
   const [titleSearch, setTitleSearch] = useState('');
   const [ratingSearch,setRatingSearch] = useState(0);
 
+  //******** */
+    function display(){
+      setMovieName(MovieData);
+    }
+    useEffect(()=>{
+      display();
+    },[]);
+  //******* */
   
   return (
     <div className="App">
