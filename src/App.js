@@ -1,45 +1,15 @@
-import React, {useEffect, useState} from 'react';
-import './App.css';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import NavBar from './component/NavBar';
-import MovieData from './component/MovieData';
-import MovieList from './component/MovieList';
-
+import React from 'react'
+import { Route, Routes } from 'react-router-dom';
+import Description from './component/Description';
+import Home from './component/Home';
 
 function App() {
-  const [movieName, setMovieName] = useState(MovieData);
-  const [titleSearch, setTitleSearch] = useState('');
-  const [ratingSearch,setRatingSearch] = useState(0);
-
-  //******** */
-    function display(){
-      setMovieName(MovieData);
-    }
-    useEffect(()=>{
-      display();
-    },[]);
-  //******* */
-  
   return (
-    <div className="App">
-      
-      <NavBar 
-         titleSearch={titleSearch}
-         ratingSearch ={ratingSearch} 
-         movieName={movieName} 
-         setMovieName={setMovieName} 
-         setTitleSearch={setTitleSearch} 
-         setRatingSearch={setRatingSearch}
-       />
-
-       <MovieList 
-         movieName={movieName}
-         titleSearch={titleSearch}
-         ratingSearch={ratingSearch}
-       />
-
-    </div>
-  );
+    <Routes>
+      <Route path='/' exact element={<Home/>} />
+      <Route path='/:title/description' exact element={<Description/>} />
+    </Routes>
+  )
 }
 
 export default App;

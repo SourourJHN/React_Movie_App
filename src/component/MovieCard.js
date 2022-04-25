@@ -2,6 +2,7 @@ import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Button, Card } from 'react-bootstrap';
 import ReactStars from 'react-rating-stars-component';
+import { Link } from 'react-router-dom';
 
 
 export default function MovieCard({movie}) {
@@ -26,9 +27,10 @@ export default function MovieCard({movie}) {
                   edit={false}
                 />
 
-              <Card.Text style={{ width: "255px", height: "100px", overflow: "auto" }}>{movie.description}</Card.Text>
-              <Button variant="outline-secondary" style={{ alignSelf: "center" }}>See trailer</Button>
-        
+             <Card.Text style={{ width: "255px", height: "100px", overflow: "auto" }}>{movie.description}</Card.Text>
+              <Link to={`${movie.title}/Description`} >
+                <Button variant="outline-secondary" style={{ alignSelf: "center" }}>See trailer</Button>
+              </Link>
             </Card.Body>
         </Card>
     
